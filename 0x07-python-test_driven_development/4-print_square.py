@@ -6,6 +6,7 @@
 
 def print_square(size):
     """ Function that prints a square using '#' based on `size`.
+
     Args:
         size (int): The size of one side of the square.
     """

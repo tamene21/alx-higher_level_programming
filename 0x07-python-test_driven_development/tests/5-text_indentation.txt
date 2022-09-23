@@ -1,50 +1,69 @@
-The ``5-`text_indentation` module
-
+The ``5-text_indentation`` module
 ======================
 
-
-
 Using ``text_indentation``
-
 -------------------
 
+Import ``text_indentation`` from the ``5-text_indentation`` module:
 
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
 
-Importing the function from the module:
+Test argument as string:
 
->>> text_indentation = __import__("5-text_indentation").text_indentation
+	>>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit. beatiorem! Iam ruinas videres")
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	<BLANKLINE>
+	beatiorem! Iam ruinas videres
 
+Test argument as empty string:
 
+	>>> text_indentation("")
 
-Checking for module docstring:
+Test argument as non string:
 
->>> m = __import__("5-text_indentation").__doc__
+	>>> text_indentation(5)
+	Traceback (most recent call last):
+	TypeError: text must be a string
 
->>> len(m) > 1
+Test argument with multuple leading spaces:
 
-True
+	>>> text_indentation("     Lorem ipsum dolor sit amet, consectetur adipiscing elit. beatiorem! Iam ruinas videres")
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	<BLANKLINE>
+	beatiorem! Iam ruinas videres
 
+Test argument with multuple spaces at the beginning and/or end of text:
 
+	>>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit. beatiorem! Iam ruinas videres     ")
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	<BLANKLINE>
+	beatiorem! Iam ruinas videres
 
-Checking for function docstring:
+Test argument with multuple spaces at the beginning, middle, and/or end of text:
 
->>> f = __import__("5-text_indentation").text_indentation.__doc__
+	>>> text_indentation("     Lorem ipsum dolor   sit amet, consectetur adipiscing elit.      beatiorem! Iam ruinas videres     ")
+	Lorem ipsum dolor   sit amet, consectetur adipiscing elit.
+	<BLANKLINE>
+	beatiorem! Iam ruinas videres
 
->>> len(f) > 1
+Test argument with multuple '?', '.', or ':' within the text:
 
-True
-
-
-
-Checking for no args:
-
->>> text_indentation()
-
-        Traceback (most recent call last):
-
-                ...
-
-                TypeError: text_indentation() missing 1 required positional argument: 'text'
-
--- INSERT --                                                                                                                                              1,1           Top
-
+	>>> text_indentation(".?:.Lorem ipsum dolor sit amet, consectetur adipiscing elit.? beatiorem! Iam ruinas videres?.:")
+	.
+	<BLANKLINE>
+	?
+	<BLANKLINE>
+	:
+	<BLANKLINE>
+	.
+	<BLANKLINE>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	<BLANKLINE>
+	?
+	<BLANKLINE>
+	beatiorem! Iam ruinas videres?
+	<BLANKLINE>
+	.
+	<BLANKLINE>
+	:
+	<BLANKLINE>

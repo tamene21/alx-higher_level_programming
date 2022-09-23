@@ -6,7 +6,6 @@
 
 def text_indentation(text):
     """ Text indentation function
-
     Args:
         text (str): A string of text
     """

@@ -3,6 +3,8 @@
 A module 3-returns a json file.
 """
 
+import json
+
 
 def to_json_string(my_obj):
     """

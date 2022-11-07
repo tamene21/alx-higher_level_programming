@@ -11,7 +11,7 @@ SELECT DISTINCT `title`
              (SELECT `title`
 		FROM `tv_shows` AS t
 		INNER JOIN `tv_show_genres` AS s
-		ON s.`how_id` = t.`id`
+		ON s.`show_id` = t.`id`
 		INNER JOIN `tv_genres` AS g
 		ON g.`id` = s.`genre_id`
 		WHERE g.`name` = "Comedy")

@@ -13,4 +13,4 @@ class State(Base):
     __tablename__ = 'states'
     id = Column(Integer, autoincrement=True,
                 primary_key=True, nullable=False. unique=True)
-    name = Column(string(128), nullable=False)
+    name = Column(String(128), nullable=False)

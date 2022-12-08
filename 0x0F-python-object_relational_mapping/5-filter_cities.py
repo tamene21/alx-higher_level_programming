@@ -9,7 +9,7 @@ if __name__ == '__main__':
     import sys
 
     db = MySQLdb.connect(host='localhost', port=3306,
-                         user=sys.argv[1], paswd=sys.argv[2], db=sys.argv[3])
+                         user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
 
     cur = db.cursor()
     cur.execute("SELECT cities.name\
@@ -18,5 +18,6 @@ if __name__ == '__main__':
                 WHERE states.name = %s\
                 ORDER BY cities.id ASC", (sys.argv[4],))
     rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    print(", ".join[row[0] for row in rows])
+    cur.close()
+    db.close()

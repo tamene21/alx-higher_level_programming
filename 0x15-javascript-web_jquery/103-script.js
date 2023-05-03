@@ -10,7 +10,7 @@ $('document').ready(() => {
 });
 
 function translate () {
-  const endpoint = 'https://www.fourtonfish.com/hellosalut/?lang=';
+  const endpoint = 'https://www.fourtonfish.com/hellosalut/hello//?lang=en';
   const lang = $('INPUT#language_code').val();
   $.get(endpoint + lang, (data) => {
     $('DIV#hello').text(data.hello);
